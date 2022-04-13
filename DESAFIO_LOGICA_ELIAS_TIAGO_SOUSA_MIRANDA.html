@@ -1,0 +1,56 @@
+<meta charset="UTF-8">
+
+<script>
+
+	function pulaLinha(){
+
+		document.write("<br>");
+	}
+
+	function mostra(texto){
+
+		document.write(texto);
+		pulaLinha();
+	}
+
+	var distancia_Percorrida = parseFloat(prompt("Qual a distância percorrida da sua casa até seu trabalho (em Km)?"));
+
+	var consumo_Medio = parseFloat(prompt("Qual o consumo médio do seu veículo (em Km/L)?"));
+
+	var consumo_NecessarioLitros = distancia_Percorrida/consumo_Medio;
+
+	var quantidade_Postos_Pesquisados = parseInt(prompt("Em quantos postos você pesquisou?"));
+
+	var soma_total_Valores_Pesquisado = 0
+
+	var menor_Valor_Pesquisado = 100
+
+	for(var quantidade = 1; quantidade <= quantidade_Postos_Pesquisados; quantidade = quantidade + 1){
+
+		var valores = parseFloat(prompt("Digite o valor encontrado (em R$) no posto " + quantidade));
+
+		soma_total_Valores_Pesquisado = valores + soma_total_Valores_Pesquisado;
+		
+
+		if(menor_Valor_Pesquisado > valores){
+
+			menor_Valor_Pesquisado = valores;
+		}
+
+	}
+
+	var media = soma_total_Valores_Pesquisado / quantidade_Postos_Pesquisados;
+
+	var gasto_Diario = 2*(consumo_NecessarioLitros*menor_Valor_Pesquisado);
+
+	mostra("O consumo necessário é " + consumo_NecessarioLitros + " litros");
+
+	mostra("O menor valor pesquisado é R$ " + menor_Valor_Pesquisado);
+
+	mostra("A média dos valores pesquisados é R$ " + media);
+
+	mostra("O gasto diário (ida e volta) é " + gasto_Diario);
+
+
+</script>
+
